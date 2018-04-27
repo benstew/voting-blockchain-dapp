@@ -48,8 +48,8 @@ Output: '0x02c054d238038d68b65d55770fabfca592a5cf6590229ab91bbe7cd72da46de9'
 > contractInstance.voteForCandidate('Janice', {from: web3.eth.accounts[0]})
 Output:  '0x3da069a09577514f2baaa11bc3015a16edf26aad28dffbcd126bde2e71f2b76f'
 
-> contractInstance.totalVotesFor.call('Bill').toLocaleString()
-Output: '3'
+> contractInstance.totalVotesFor.call('Janice').toLocaleString()
+Output: '2'
 ```
 
 Interacting with contract via front GUI
