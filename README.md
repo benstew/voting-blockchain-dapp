@@ -22,7 +22,7 @@ Directions:
 
 5. Deploy the contract
   ```
-  abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface)
+  abiDefinition = JSON.parse(compiledCode.contracts[':voting'].interface)
   VotingContract = web3.eth.contract(abiDefinition)
   byteCode = compiledCode.contracts[':voting'].bytecode
   deployedContract = VotingContract.new(['Bill','Tom','Janice'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
