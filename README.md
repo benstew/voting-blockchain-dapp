@@ -11,16 +11,17 @@ Install Dependencies:
 
 Directions:
 1. Git Clone this repository
-2. Run ganache-cli ```node_modules/.bin/ganace-cli```
-3. Open up Nodejs console ```node```
-4. Compile the contract
+2. Run ganache-cli ```npm start```
+4. Move to voting-blockchain-dapp folder
+5. Open up Nodejs console ```node```
+6. Compile the contract
   ```
   code = fs.readFileSync('Voting.sol').toString()
   solc = require('solc')
   compiledCode = solc.compile(code)
   ```
 
-5. Deploy the contract
+7. Deploy the contract
   ```
   abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface)
   VotingContract = web3.eth.contract(abiDefinition)
