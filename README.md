@@ -11,18 +11,21 @@ Install Dependencies:
 
 Directions:
 1. Git Clone this repository
-2. Run ganache-cli ```node_modules/.bin/ganace-cli```
-3. Open up Nodejs console ```node```
-4. Compile the contract
+2. Run ganache-cli ```npm start```
+4. Move to voting-blockchain-dapp folder
+5. Open up Nodejs console ```node```
+6. Compile the contract
   ```
   code = fs.readFileSync('Voting.sol').toString()
   solc = require('solc')
   compiledCode = solc.compile(code)
   ```
 
-5. Deploy the contract
+7. Deploy the contract
   ```
   abiDefinition = JSON.parse(compiledCode.contracts[':Voting'].interface)
+  web3 = require('web3')
+  web3 = new web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   VotingContract = web3.eth.contract(abiDefinition)
   byteCode = compiledCode.contracts[':voting'].bytecode
   deployedContract = VotingContract.new(['Bill','Tom','Janice'],{data: byteCode, from: web3.eth.accounts[0], gas: 4700000})
@@ -45,8 +48,8 @@ Output: '0x02c054d238038d68b65d55770fabfca592a5cf6590229ab91bbe7cd72da46de9'
 > contractInstance.voteForCandidate('Janice', {from: web3.eth.accounts[0]})
 Output:  '0x3da069a09577514f2baaa11bc3015a16edf26aad28dffbcd126bde2e71f2b76f'
 
-> contractInstance.totalVotesFor.call('Bill').toLocaleString()
-Output: '3'
+> contractInstance.totalVotesFor.call('Janice').toLocaleString()
+Output: '2'
 ```
 
 Interacting with contract via front GUI
