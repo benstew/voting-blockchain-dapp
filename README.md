@@ -15,6 +15,8 @@ Directions:
 3. Open up Nodejs console ```node```
 4. Compile the contract
   ```
+  Web3 = require('web3')
+  web3 = new Web3(new Web3.providers.HttpsProvider("http://localhost:8545"));
   code = fs.readFileSync('Voting.sol').toString()
   solc = require('solc')
   compiledCode = solc.compile(code)
